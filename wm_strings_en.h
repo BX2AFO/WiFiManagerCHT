@@ -63,7 +63,7 @@ const char HTTP_ITEM[]             PROGMEM = "<div><a href='#p' onclick='c(this)
 // const char HTTP_ITEM[]            PROGMEM = "<div><a href='#p' onclick='c(this)'>{v}</a> {R} {r}% {q} {e}</div>"; // test all tokens
 
 const char HTTP_FORM_START[]       PROGMEM = "<form method='POST' action='{v}'>";
-const char HTTP_FORM_WIFI[]        PROGMEM = "<label for='s'>SSID</label><input id='s' name='s' maxlength='32' autocorrect='off' autocapitalize='none' placeholder='{v}'><br/><label for='p'>Password</label><input id='p' name='p' maxlength='64' type='password' placeholder='{p}'><input type='checkbox' onclick='f()'> Show Password";
+const char HTTP_FORM_WIFI[]        PROGMEM = "<label for='s'>SSID 無線網路名稱</label><input id='s' name='s' maxlength='32' autocorrect='off' autocapitalize='none' placeholder='{v}'><br/><label for='p'>Password 無線網路金鑰</label><input id='p' name='p' maxlength='64' type='password' placeholder='{p}'><input type='checkbox' onclick='f()'> 顯示密碼";
 const char HTTP_FORM_WIFI_END[]    PROGMEM = "";
 const char HTTP_FORM_STATIC_HEAD[] PROGMEM = "<hr><br/>";
 const char HTTP_FORM_END[]         PROGMEM = "<br/><br/><button type='submit'>儲存設定</button></form>";
@@ -72,7 +72,7 @@ const char HTTP_FORM_PARAM_HEAD[]  PROGMEM = "<hr><br/>";
 const char HTTP_FORM_PARAM[]       PROGMEM = "<br/><input id='{i}' name='{n}' maxlength='{l}' value='{v}' {c}>\n"; // do not remove newline!
 
 const char HTTP_SCAN_LINK[]        PROGMEM = "<br/><form action='/wifi?refresh=1' method='POST'><button name='refresh' value='1'>WiFi重新掃描</button></form>";
-const char HTTP_SAVED[]            PROGMEM = "<div class='msg'>Saving Credentials<br/>嘗試連接至網路<br />If it fails reconnect to AP to try again</div>";
+const char HTTP_SAVED[]            PROGMEM = "<div class='msg'>儲存設定<br/>嘗試連接至網路<br />如果系統無法正確連線至網路，請重新連線至NerdMinerAP設定</div>";
 const char HTTP_PARAMSAVED[]       PROGMEM = "<div class='msg S'>Saved<br/></div>";
 const char HTTP_END[]              PROGMEM = "</div></body></html>";
 const char HTTP_ERASEBTN[]         PROGMEM = "<br/><form action='/erase' method='get'><button class='D'>清除 WiFI 設定</button></form>";
@@ -120,25 +120,25 @@ const char HTTP_STYLE[]            PROGMEM = "<style>"
 
 #ifndef WM_NOHELP
 const char HTTP_HELP[]             PROGMEM =
- "<br/><h3>Available pages</h3><hr>"
+ "<br/><h3>可用設定頁面</h3><hr>"
  "<table class='table'>"
- "<thead><tr><th>Page</th><th>Function</th></tr></thead><tbody>"
+ "<thead><tr><th>設定頁面</th><th>Function</th></tr></thead><tbody>"
  "<tr><td><a href='/'>/</a></td>"
  "<td>Menu page.</td></tr>"
  "<tr><td><a href='/wifi'>/wifi</a></td>"
- "<td>Show WiFi scan results and enter WiFi configuration.(/0wifi noscan)</td></tr>"
+ "<td>顯示WiFi設定頁面.(/0wifi noscan)</td></tr>"
  "<tr><td><a href='/wifisave'>/wifisave</a></td>"
  "<td>Save WiFi configuration information and configure device. Needs variables supplied.</td></tr>"
  "<tr><td><a href='/param'>/param</a></td>"
- "<td>Parameter page</td></tr>"
+ "<td>礦池設定頁面</td></tr>"
  "<tr><td><a href='/info'>/info</a></td>"
- "<td>Information page</td></tr>"
+ "<td>設備資訊頁面</td></tr>"
  "<tr><td><a href='/u'>/u</a></td>"
  "<td>OTA Update</td></tr>"
  "<tr><td><a href='/close'>/close</a></td>"
  "<td>Close the captiveportal popup, config portal will remain active</td></tr>"
  "<tr><td>/exit</td>"
- "<td>Exit Config portal, config portal will close</td></tr>"
+ "<td>離開設定</td></tr>"
  "<tr><td>/restart</td>"
  "<td>重啟設備</td></tr>"
  "<tr><td>/erase</td>"
@@ -150,8 +150,8 @@ const char HTTP_HELP[]             PROGMEM = "";
 #endif
 
 const char HTTP_UPDATE[] PROGMEM = "Upload new firmware<br/><form method='POST' action='u' enctype='multipart/form-data' onchange=\"(function(el){document.getElementById('uploadbin').style.display = el.value=='' ? 'none' : 'initial';})(this)\"><input type='file' name='update' accept='.bin,application/octet-stream'><button id='uploadbin' type='submit' class='h D'>Update</button></form><small><a href='http://192.168.4.1/update' target='_blank'>* May not function inside captive portal, open in browser http://192.168.4.1</a><small>";
-const char HTTP_UPDATE_FAIL[] PROGMEM = "<div class='msg D'><strong>Update failed!</strong><Br/>Reboot device and try again</div>";
-const char HTTP_UPDATE_SUCCESS[] PROGMEM = "<div class='msg S'><strong>Update successful.  </strong> <br/> Device rebooting now...</div>";
+const char HTTP_UPDATE_FAIL[] PROGMEM = "<div class='msg D'><strong>更新失敗!</strong><Br/>重新啟動裝置並在嘗試一次</div>";
+const char HTTP_UPDATE_SUCCESS[] PROGMEM = "<div class='msg S'><strong>更新成功.  </strong> <br/> 重新啟動裝置中...</div>";
 
 #ifdef WM_JSTEST
 const char HTTP_JS[] PROGMEM =
@@ -176,12 +176,12 @@ const char HTTP_JS[] PROGMEM =
 // Info html
 // @todo remove html elements from progmem, repetetive strings
 #ifdef ESP32
-	const char HTTP_INFO_esphead[]    PROGMEM = "<h3>esp32</h3><hr><dl>";
-	const char HTTP_INFO_chiprev[]    PROGMEM = "<dt>Chip rev</dt><dd>{1}</dd>";
+	const char HTTP_INFO_esphead[]    PROGMEM = "<h3>ESP32-中文系統優化版</h3><hr><dl>";
+	const char HTTP_INFO_chiprev[]    PROGMEM = "<dt>Chip rev 晶片版本</dt><dd>{1}</dd>";
   	const char HTTP_INFO_lastreset[]  PROGMEM = "<dt>Last reset reason</dt><dd>CPU0: {1}<br/>CPU1: {2}</dd>";
   	const char HTTP_INFO_aphost[]     PROGMEM = "<dt>Access point hostname</dt><dd>{1}</dd>";
-    const char HTTP_INFO_psrsize[]    PROGMEM = "<dt>PSRAM Size</dt><dd>{1} bytes</dd>";
-	const char HTTP_INFO_temp[]       PROGMEM = "<dt>Temperature</dt><dd>{1} C&deg; / {2} F&deg;</dd>";
+    const char HTTP_INFO_psrsize[]    PROGMEM = "<dt>PSRAM Size PSRAM容量</dt><dd>{1} bytes</dd>";
+	const char HTTP_INFO_temp[]       PROGMEM = "<dt>Temperature 溫度</dt><dd>{1} C&deg; / {2} F&deg;</dd>";
     const char HTTP_INFO_hall[]       PROGMEM = "<dt>Hall</dt><dd>{1}</dd>";
 #else
 	const char HTTP_INFO_esphead[]    PROGMEM = "<h3>esp8266</h3><hr><dl>";
@@ -196,11 +196,11 @@ const char HTTP_INFO_memsmeter[]  PROGMEM = "<br/><progress value='{1}' max='{2}
 const char HTTP_INFO_memsketch[]  PROGMEM = "<dt>Memory - Sketch size</dt><dd>Used / Total bytes<br/>{1} / {2}";
 const char HTTP_INFO_freeheap[]   PROGMEM = "<dt>Memory - Free heap</dt><dd>{1} bytes available</dd>";
 const char HTTP_INFO_wifihead[]   PROGMEM = "<br/><h3>WiFi</h3><hr>";
-const char HTTP_INFO_uptime[]     PROGMEM = "<dt>Uptime</dt><dd>{1} mins {2} secs</dd>";
-const char HTTP_INFO_chipid[]     PROGMEM = "<dt>Chip ID</dt><dd>{1}</dd>";
-const char HTTP_INFO_idesize[]    PROGMEM = "<dt>Flash size</dt><dd>{1} bytes</dd>";
+const char HTTP_INFO_uptime[]     PROGMEM = "<dt>Uptime 已開機時間</dt><dd>{1} mins {2} secs</dd>";
+const char HTTP_INFO_chipid[]     PROGMEM = "<dt>Chip ID 晶片ID</dt><dd>{1}</dd>";
+const char HTTP_INFO_idesize[]    PROGMEM = "<dt>Flash size 快閃記憶體容量</dt><dd>{1} bytes</dd>";
 const char HTTP_INFO_sdkver[]     PROGMEM = "<dt>SDK version</dt><dd>{1}</dd>";
-const char HTTP_INFO_cpufreq[]    PROGMEM = "<dt>CPU frequency</dt><dd>{1}MHz</dd>";
+const char HTTP_INFO_cpufreq[]    PROGMEM = "<dt>CPU frequency CPU頻率</dt><dd>{1}MHz</dd>";
 const char HTTP_INFO_apip[]       PROGMEM = "<dt>Access point IP</dt><dd>{1}</dd>";
 const char HTTP_INFO_apmac[]      PROGMEM = "<dt>Access point MAC</dt><dd>{1}</dd>";
 const char HTTP_INFO_apssid[]     PROGMEM = "<dt>Access point SSID</dt><dd>{1}</dd>";
