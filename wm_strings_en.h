@@ -23,7 +23,7 @@
 const char WM_LANGUAGE[] PROGMEM = "en-US"; // i18n lang code
 
 const char HTTP_HEAD_START[]       PROGMEM = "<!DOCTYPE html>"
-"<html lang='en'><head>"
+"<html lang='zh-TW'><head>"
 "<meta name='format-detection' content='telephone=no'>"
 "<meta charset='UTF-8'>"
 "<meta  name='viewport' content='width=device-width,initial-scale=1,user-scalable=no'/>"
@@ -43,15 +43,15 @@ const char HTTP_HEAD_END[]         PROGMEM = "</head><body class='{c}'><div clas
 const char HTTP_ROOT_MAIN[]        PROGMEM = "<h1>{t}</h1><h3>{v}</h3>";
 
 const char * const HTTP_PORTAL_MENU[] PROGMEM = {
-"<form action='/wifi'    method='get'><button>Configure WiFi</button></form><br/>\n", // MENU_WIFI
-"<form action='/0wifi'   method='get'><button>Configure WiFi (No scan)</button></form><br/>\n", // MENU_WIFINOSCAN
-"<form action='/info'    method='get'><button>Info</button></form><br/>\n", // MENU_INFO
-"<form action='/param'   method='get'><button>Setup</button></form><br/>\n",//MENU_PARAM
-"<form action='/close'   method='get'><button>Close</button></form><br/>\n", // MENU_CLOSE
-"<form action='/restart' method='get'><button>Restart</button></form><br/>\n",// MENU_RESTART
-"<form action='/exit'    method='get'><button>Exit</button></form><br/>\n",  // MENU_EXIT
-"<form action='/erase'   method='get'><button class='D'>Erase</button></form><br/>\n", // MENU_ERASE
-"<form action='/update'  method='get'><button>Update</button></form><br/>\n",// MENU_UPDATE
+"<form action='/wifi'    method='get'><button>WiFi設定</button></form><br/>\n", // MENU_WIFI
+"<form action='/0wifi'   method='get'><button>WiFi設定 (無掃描)</button></form><br/>\n", // MENU_WIFINOSCAN
+"<form action='/info'    method='get'><button>資訊</button></form><br/>\n", // MENU_INFO
+"<form action='/param'   method='get'><button>設定</button></form><br/>\n",//MENU_PARAM
+"<form action='/close'   method='get'><button>關閉</button></form><br/>\n", // MENU_CLOSE
+"<form action='/restart' method='get'><button>重啟</button></form><br/>\n",// MENU_RESTART
+"<form action='/exit'    method='get'><button>離開</button></form><br/>\n",  // MENU_EXIT
+"<form action='/erase'   method='get'><button class='D'>清除</button></form><br/>\n", // MENU_ERASE
+"<form action='/update'  method='get'><button>更新</button></form><br/>\n",// MENU_UPDATE
 "<hr><br/>" // MENU_SEP
 };
 
