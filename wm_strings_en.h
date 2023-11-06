@@ -43,15 +43,15 @@ const char HTTP_HEAD_END[]         PROGMEM = "</head><body class='{c}'><div clas
 const char HTTP_ROOT_MAIN[]        PROGMEM = "<h1>{t}</h1><h3>{v}</h3>";
 
 const char * const HTTP_PORTAL_MENU[] PROGMEM = {
-"<form action='/wifi'    method='get'><button>WiFi設定</button></form><br/>\n", // MENU_WIFI
-"<form action='/0wifi'   method='get'><button>WiFi設定 (無掃描)</button></form><br/>\n", // MENU_WIFINOSCAN
-"<form action='/info'    method='get'><button>資訊</button></form><br/>\n", // MENU_INFO
+"<form action='/wifi'    method='get'><button>WiFi 設定</button></form><br/>\n", // MENU_WIFI
+"<form action='/0wifi'   method='get'><button>WiFi 設定 (無掃描)</button></form><br/>\n", // MENU_WIFINOSCAN
+"<form action='/info'    method='get'><button>設備資訊</button></form><br/>\n", // MENU_INFO
 "<form action='/param'   method='get'><button>設定</button></form><br/>\n",//MENU_PARAM
 "<form action='/close'   method='get'><button>關閉</button></form><br/>\n", // MENU_CLOSE
 "<form action='/restart' method='get'><button>重啟</button></form><br/>\n",// MENU_RESTART
-"<form action='/exit'    method='get'><button>離開</button></form><br/>\n",  // MENU_EXIT
+"<form action='/exit'    method='get'><button>離開設定</button></form><br/>\n",  // MENU_EXIT
 "<form action='/erase'   method='get'><button class='D'>清除</button></form><br/>\n", // MENU_ERASE
-"<form action='/update'  method='get'><button>更新</button></form><br/>\n",// MENU_UPDATE
+"<form action='/update'  method='get'><button>更新韌體</button></form><br/>\n",// MENU_UPDATE
 "<hr><br/>" // MENU_SEP
 };
 
@@ -66,25 +66,25 @@ const char HTTP_FORM_START[]       PROGMEM = "<form method='POST' action='{v}'>"
 const char HTTP_FORM_WIFI[]        PROGMEM = "<label for='s'>SSID</label><input id='s' name='s' maxlength='32' autocorrect='off' autocapitalize='none' placeholder='{v}'><br/><label for='p'>Password</label><input id='p' name='p' maxlength='64' type='password' placeholder='{p}'><input type='checkbox' onclick='f()'> Show Password";
 const char HTTP_FORM_WIFI_END[]    PROGMEM = "";
 const char HTTP_FORM_STATIC_HEAD[] PROGMEM = "<hr><br/>";
-const char HTTP_FORM_END[]         PROGMEM = "<br/><br/><button type='submit'>Save</button></form>";
+const char HTTP_FORM_END[]         PROGMEM = "<br/><br/><button type='submit'>儲存設定</button></form>";
 const char HTTP_FORM_LABEL[]       PROGMEM = "<label for='{i}'>{t}</label>";
 const char HTTP_FORM_PARAM_HEAD[]  PROGMEM = "<hr><br/>";
 const char HTTP_FORM_PARAM[]       PROGMEM = "<br/><input id='{i}' name='{n}' maxlength='{l}' value='{v}' {c}>\n"; // do not remove newline!
 
-const char HTTP_SCAN_LINK[]        PROGMEM = "<br/><form action='/wifi?refresh=1' method='POST'><button name='refresh' value='1'>Refresh</button></form>";
+const char HTTP_SCAN_LINK[]        PROGMEM = "<br/><form action='/wifi?refresh=1' method='POST'><button name='refresh' value='1'>WiFi重新掃描</button></form>";
 const char HTTP_SAVED[]            PROGMEM = "<div class='msg'>Saving Credentials<br/>Trying to connect ESP to network.<br />If it fails reconnect to AP to try again</div>";
 const char HTTP_PARAMSAVED[]       PROGMEM = "<div class='msg S'>Saved<br/></div>";
 const char HTTP_END[]              PROGMEM = "</div></body></html>";
-const char HTTP_ERASEBTN[]         PROGMEM = "<br/><form action='/erase' method='get'><button class='D'>Erase WiFi config</button></form>";
+const char HTTP_ERASEBTN[]         PROGMEM = "<br/><form action='/erase' method='get'><button class='D'>清除 WiFI 設定</button></form>";
 const char HTTP_UPDATEBTN[]        PROGMEM = "<br/><form action='/update' method='get'><button>Update</button></form>";
-const char HTTP_BACKBTN[]          PROGMEM = "<hr><br/><form action='/' method='get'><button>Back</button></form>";
+const char HTTP_BACKBTN[]          PROGMEM = "<hr><br/><form action='/' method='get'><button>返回</button></form>";
 
-const char HTTP_STATUS_ON[]        PROGMEM = "<div class='msg S'><strong>Connected</strong> to {v}<br/><em><small>with IP {i}</small></em></div>";
-const char HTTP_STATUS_OFF[]       PROGMEM = "<div class='msg {c}'><strong>Not connected</strong> to {v}{r}</div>"; // {c=class} {v=ssid} {r=status_off}
-const char HTTP_STATUS_OFFPW[]     PROGMEM = "<br/>Authentication failure"; // STATION_WRONG_PASSWORD,  no eps32
-const char HTTP_STATUS_OFFNOAP[]   PROGMEM = "<br/>AP not found";   // WL_NO_SSID_AVAIL
+const char HTTP_STATUS_ON[]        PROGMEM = "<div class='msg S'><strong>已連接</strong> to {v}<br/><em><small>with IP {i}</small></em></div>";
+const char HTTP_STATUS_OFF[]       PROGMEM = "<div class='msg {c}'><strong>未連接</strong> to {v}{r}</div>"; // {c=class} {v=ssid} {r=status_off}
+const char HTTP_STATUS_OFFPW[]     PROGMEM = "<br/>認證錯誤"; // STATION_WRONG_PASSWORD,  no eps32
+const char HTTP_STATUS_OFFNOAP[]   PROGMEM = "<br/>未找到AP";   // WL_NO_SSID_AVAIL
 const char HTTP_STATUS_OFFFAIL[]   PROGMEM = "<br/>Could not connect"; // WL_CONNECT_FAILED
-const char HTTP_STATUS_NONE[]      PROGMEM = "<div class='msg'>No AP set</div>";
+const char HTTP_STATUS_NONE[]      PROGMEM = "<div class='msg'>尚未設定無線網路</div>";
 const char HTTP_BR[]               PROGMEM = "<br/>";
 
 const char HTTP_STYLE[]            PROGMEM = "<style>"
