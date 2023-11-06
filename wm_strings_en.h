@@ -72,7 +72,7 @@ const char HTTP_FORM_PARAM_HEAD[]  PROGMEM = "<hr><br/>";
 const char HTTP_FORM_PARAM[]       PROGMEM = "<br/><input id='{i}' name='{n}' maxlength='{l}' value='{v}' {c}>\n"; // do not remove newline!
 
 const char HTTP_SCAN_LINK[]        PROGMEM = "<br/><form action='/wifi?refresh=1' method='POST'><button name='refresh' value='1'>WiFi重新掃描</button></form>";
-const char HTTP_SAVED[]            PROGMEM = "<div class='msg'>Saving Credentials<br/>Trying to connect ESP to network.<br />If it fails reconnect to AP to try again</div>";
+const char HTTP_SAVED[]            PROGMEM = "<div class='msg'>Saving Credentials<br/>嘗試連接至網路<br />If it fails reconnect to AP to try again</div>";
 const char HTTP_PARAMSAVED[]       PROGMEM = "<div class='msg S'>Saved<br/></div>";
 const char HTTP_END[]              PROGMEM = "</div></body></html>";
 const char HTTP_ERASEBTN[]         PROGMEM = "<br/><form action='/erase' method='get'><button class='D'>清除 WiFI 設定</button></form>";
@@ -83,7 +83,7 @@ const char HTTP_STATUS_ON[]        PROGMEM = "<div class='msg S'><strong>已連�
 const char HTTP_STATUS_OFF[]       PROGMEM = "<div class='msg {c}'><strong>未連接</strong> to {v}{r}</div>"; // {c=class} {v=ssid} {r=status_off}
 const char HTTP_STATUS_OFFPW[]     PROGMEM = "<br/>認證錯誤"; // STATION_WRONG_PASSWORD,  no eps32
 const char HTTP_STATUS_OFFNOAP[]   PROGMEM = "<br/>未找到AP";   // WL_NO_SSID_AVAIL
-const char HTTP_STATUS_OFFFAIL[]   PROGMEM = "<br/>Could not connect"; // WL_CONNECT_FAILED
+const char HTTP_STATUS_OFFFAIL[]   PROGMEM = "<br/>無法連接"; // WL_CONNECT_FAILED
 const char HTTP_STATUS_NONE[]      PROGMEM = "<div class='msg'>尚未設定無線網路</div>";
 const char HTTP_BR[]               PROGMEM = "<br/>";
 
@@ -140,7 +140,7 @@ const char HTTP_HELP[]             PROGMEM =
  "<tr><td>/exit</td>"
  "<td>Exit Config portal, config portal will close</td></tr>"
  "<tr><td>/restart</td>"
- "<td>Reboot the device</td></tr>"
+ "<td>重啟設備</td></tr>"
  "<tr><td>/erase</td>"
  "<td>Erase WiFi configuration and reboot device. Device will not reconnect to a network until new WiFi configuration data is entered.</td></tr>"
  "</table>"
